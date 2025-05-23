@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Canvas with LLM</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #canvas { width: 100%; height: 100vh; }
+        #input-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            display: flex;
+        }
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        #submit-btn {
+            margin-left: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        #modules-list {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.7);
+            padding: 10px;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+    <!-- Use a CDN that includes OrbitControls as part of THREE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="canvas"></div>
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Describe what to create...">
+        <button id="submit-btn">Create</button>
+    </div>
+    <div id="modules-list">
+        <h3>Active Modules</h3>
+        <ul id="modules"></ul>
+    </div>
+
+    <script src="llm.js"></script>
+    <script src="main.js"></script>
+</body>
+</html> 
